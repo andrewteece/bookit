@@ -1,4 +1,7 @@
 import Heading from '@/components/Heading'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FaChevronLeft } from 'react-icons/fa'
 import rooms from '@/data/rooms.json'
 
 const RoomPage = ({ params }) => {
@@ -15,7 +18,7 @@ const RoomPage = ({ params }) => {
           href='/rooms.html'
           className='flex items-center text-gray-600 hover:text-gray-800 mb-4'
         >
-          <i className='fa fa-chevron-left'></i>
+          <FaChevronLeft className='inline mr-1' />
           <span className='ml-2'>Back to Rooms</span>
         </a>
 
