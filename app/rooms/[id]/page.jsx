@@ -16,7 +16,7 @@ const RoomPage = ({ params }) => {
       <Heading title={room.name} />
       <div className='bg-white shadow rounded-lg p-6'>
         <Link
-          href='/rooms.html'
+          href='/'
           className='flex items-center text-gray-600 hover:text-gray-800 mb-4'
         >
           <FaChevronLeft className='inline mr-1' />
