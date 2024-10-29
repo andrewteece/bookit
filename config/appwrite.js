@@ -1,4 +1,4 @@
-import { Client, Databases, Account, Storage, Client } from "node-appwrite";
+import { Client, Databases, Account, Storage } from "node-appwrite";
 
 // Admin Client
 const createAdminClient = async () => {
