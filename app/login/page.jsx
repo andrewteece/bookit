@@ -1,17 +1,31 @@
 'use client'
+
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useFormState } from 'react-dom'
 import { toast } from 'react-toastify'
-//import createSession from '../actions/createSession'
-//import { useAuth } from '@/context/authContext'
+import createSession from '../actions/createSession'
+import { useAuth } from '@/context/authContext'
 
 const LoginPage = () => {
+  const [state, formAction] = useFormState(createSession, {})
+  const { isAuthenticated, setIsAuthenticated } = useAuth()
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (state.error) toast.error(state.error)
+    if (state.success) {
+      toast.success('Logged in Sucessfully')
+      setIsAuthenticated(true)
+      router.push('/')
+    }
+  }, [state])
   return (
     <div className='flex items-center justify-center'>
       <div className='bg-white shadow-lg rounded-lg p-6 w-full max-w-sm mt-20'>
-        <htmlForm>
+        <form action={formAction}>
           <h2 className='text-2xl font-bold text-center text-gray-800 mb-6'>
             Login
           </h2>
@@ -63,7 +77,7 @@ const LoginPage = () => {
               </Link>
             </p>
           </div>
-        </htmlForm>
+        </form>
       </div>
     </div>
   )
