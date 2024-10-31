@@ -1,14 +1,26 @@
+'use client'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { useFormState } from 'react-dom'
+import { toast } from 'react-toastify'
+//import createSession from '../actions/createSession'
+//import { useAuth } from '@/context/authContext'
+
 const LoginPage = () => {
   return (
     <div className='flex items-center justify-center'>
       <div className='bg-white shadow-lg rounded-lg p-6 w-full max-w-sm mt-20'>
-        <form>
+        <htmlForm>
           <h2 className='text-2xl font-bold text-center text-gray-800 mb-6'>
             Login
           </h2>
 
           <div className='mb-4'>
-            <label for='email' className='block text-gray-700 font-bold mb-2'>
+            <label
+              htmlFor='email'
+              className='block text-gray-700 font-bold mb-2'
+            >
               Email
             </label>
             <input
@@ -22,7 +34,7 @@ const LoginPage = () => {
 
           <div className='mb-6'>
             <label
-              for='password'
+              htmlFor='password'
               className='block text-gray-700 font-bold mb-2'
             >
               Password
@@ -46,12 +58,12 @@ const LoginPage = () => {
 
             <p>
               No account?
-              <a href='register.html' className='text-blue-500'>
+              <Link href='/register' className='text-blue-500'>
                 Register
-              </a>
+              </Link>
             </p>
           </div>
-        </form>
+        </htmlForm>
       </div>
     </div>
   )
